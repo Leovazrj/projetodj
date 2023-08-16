@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">	
+		<link rel="stylesheet" type="text/css" href="{% static 'css_listar/css/style.css'%}" media="screen" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+        <title>Login</title>
+    </head>
+	
+	<body>
+		<div id="viewport">
+	<!-- Sidebar -->
+		<div id="sidebar">
+		<header>
+			<a href="/listar">Biblioteca</a>
+		</header>
+		<ul class="nav">
+			<li>
+			<a href="/cadastrar">
+				<i class="zmdi zmdi-view-dashboard"></i> Cadastrar
+			</a>
+			</li>
+			<li>
+			<a href="{% static 'css_listar/css/style.css'%}">
+				<i class="zmdi zmdi-link"></i> Editar
+			</a>
+			</li>
+			<li>
+			<a href="{% static 'css_listar/css/style.css'%}">
+				<i class="zmdi zmdi-widgets"></i> Excluir
+			</a>
+			</li>
+			<li>
+			<a href="{% static 'css_listar/css/style.css'%}">
+				<i class="zmdi zmdi-calendar"></i> Listar
+			</a>
+			</li>
+			<!--li>
+			<a href="{% static 'css_listar/css/style.css'%}">
+				<i class="zmdi zmdi-info-outline"></i> 
+			</a>
+			</li-->
+			<!--li>
+			<a href="{% static 'css_listar/css/style.css'%}">
+				<i class="zmdi zmdi-settings"></i> Services
+			</a>
+			</li-->
+			<li>
+			<a href="/">
+				<i class="zmdi zmdi-comment-more"></i> Sair
+			</a>
+			</li>
+		</ul>
+		</div>
+		<!-- Content -->
+		<div id="content">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+				<a href="{% static 'css_listar/css/style.css'%}"><i class="zmdi zmdi-notifications text-danger"></i>
+				</a>
+				</li>
+				<!--li><a href="{% static 'css_listar/css/style.css'%}">Test User</a></li-->
+			</ul>
+			</div>
+		</nav>
+		<!--div class="container-fluid">
+			<h1>Simple Sidebar</h1>
+			<p>
+			Make sure to keep all page content within the 
+			<code>#content</code>.
+			</p>
+		</div-->
+		</div>
+        <form class='container-fluid'>
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Nome do livro:</label>
+                <input type="text" class="form-control" id="validationCustom01">
+        
+            </div>
+            
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Genero:</label>
+                <input type="text" class="form-control" id="validationCustom02">
+            
+            </div>
+            
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Idioma</label>
+                <input type="text" class="form-control" id="validationCustom01">
+                                
+            </div>
+            
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">Escritor(a):</label>
+                <input type="text" class="form-control" id="validationCustom01" >
+                
+            </div>
+            <div class="col-md-2">
+                <label for="money-input" class="form-label">Valor de Compra:</label>
+                <input type="text" class="form-control" id="money-input">
+                
+            </div>
+            <div class="col-md-2">
+                <label for="money-input" class="form-label">Valor de Venda:</label>
+                <input type="text" class="form-control" id="money-input2">
+                
+            </div>
+            <div class="col-md-2">
+                <label for="validationCustom01" class="form-label">Data de compra:</label>
+                <input type="date" class="form-control" id="validationCustom01" >
+                
+            </div>
+            <div class="col-md-2">
+                <label for="validationCustom01" class="form-label">Data de venda:</label>
+                <input type="date" class="form-control" >
+                
+            </div>
+            
+                                   
+        </form>
+        <div class="container-fluid">
+            <form>
+                <div class = "col-md-4"> 
+                    <label for="exampleFormControlTextarea1" class="form-label">Sinopse:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                </div>
+            </form>
+            <form>
+                <div class = "col-md-4"> 
+                    <label for="exampleFormControlTextarea1" class="form-label">Observções:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                </div>
+            </form>                 
+        </div>    
+        
+        <script>
+            $(document).ready(function() {
+                $('#money-input').maskMoney({
+                    prefix: 'R$ ',       // Prefixo
+                    thousands: '.',      // Separador de milhar
+                    decimal: ',',        // Separador decimal
+                    affixesStay: true,  // Manter o prefixo/sufixo visível ao digitar
+                    allowZero: true,     // Permitir entrada de zero
+                    precision: 2         // Número de casas decimais
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('#money-input2').maskMoney({
+                    prefix: 'R$ ',       // Prefixo
+                    thousands: '.',      // Separador de milhar
+                    decimal: ',',        // Separador decimal
+                    affixesStay: true,  // Manter o prefixo/sufixo visível ao digitar
+                    allowZero: true,     // Permitir entrada de zero
+                    precision: 2         // Número de casas decimais
+                });
+            });
+        </script>
+      
+
+                      
+
+                
+
+
+            
+            
+            
+              
+                
+              
+        

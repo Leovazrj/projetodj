@@ -10,4 +10,10 @@ def login(request):
 def listar(request):
     return render(request, 'listar/listar.html')
 
+@csrf_exempt
+def cadastrar(request):
+    return render(request, 'cadastrar/cadastrar.html')
+
+
+
 

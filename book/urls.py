@@ -1,8 +1,10 @@
 from django.urls import path
-from book.views import login, listar
+from book import views
+from book.views import login, listar, cadastrar
 
 
 urlpatterns = [
-    path('', login),
-    path('listar/', listar),
+    path('', views.login),
+    path('listar/', views.listar),
+    path('cadastrar/', views.cadastrar),
 ]
